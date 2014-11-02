@@ -1,1 +1,2 @@
 web: fileserver
+worker: worker
