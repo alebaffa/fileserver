@@ -3,6 +3,8 @@
 Test of web application written in Go and deployed (temporarily) on Heroku.
 https://helpthesheriff.herokuapp.com/.
 
+I am sorry for this crappy name (fileserver), but it was a different app at the beginning, but I was too lazy to create a new one.
+
 ## Prerequisites
 * [Go latest version](https://golang.org/doc/install): the backend is written in Go. I think it's compatible also with older versions, but there's no reason to not use the latest one.
 * [Heroku toolbelt](https://toolbelt.heroku.com/): to push to heroku server using Git.
