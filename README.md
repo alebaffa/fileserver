@@ -1,4 +1,4 @@
-fileserver
+#HelpTheSheriff webapp
 ==========
 Test of web application written in Go and deployed (temporarily) on Heroku.
 https://helpthesheriff.herokuapp.com/.
@@ -10,4 +10,28 @@ https://helpthesheriff.herokuapp.com/.
 * [Bootstrap](http://getbootstrap.com/getting-started/): the frontend is a bootstrap theme customized.
 
 ## Install
+* fork and clone this repository
 
+## Run Locally
+* *cd /fileserver*
+* *go build*
+* *./fileserver* : at this point you should be able to run this webapp locally at [http://localhost:8080](http://localhost:8080).
+
+## Customization
+In order to use the names of your teammates, you have to modify the file *hello.go* : 
+```
+func AssignPTR(rw http.ResponseWriter, r *http.Request) {
+    teammate := []Teammate{
+        {"Alessandro"},
+        {"Davide"},
+        {"Marcello"},
+        {"Sarah"},
+        {"Fred"},
+        {"Khaled"},
+        {"Herve"},
+        {"Bo"},
+        {"Remi"},
+    }
+```
+## Deploy on Heroku
+* follow the official procedure [here](https://toolbelt.heroku.com/).
