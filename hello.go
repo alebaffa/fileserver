@@ -11,6 +11,7 @@ func main() {
         port = "8080"
     }
 
-    http.Handle("/", http.FileServer(http.Dir("public")))
+    //http.Handle("/", http.FileServer(http.Dir("public")))
+    http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("public"))))
     http.ListenAndServe(":"+port, nil)
 }
