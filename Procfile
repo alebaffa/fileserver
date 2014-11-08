@@ -1,2 +1,1 @@
-web: fileserver
-worker: worker
+web: deployment
