@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Assign Me a PTR</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+      <video autoplay id="bgvid" loop>
+      <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+      <source src="/assets/oscar_goes_to.webm" type="video/webm">
+      <source src="/assets/oscar_goes_to.mp4" type="video/mp4">
+      </video>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right" role="tablist">
+          <li role="presentation" class="active"><a href="https://vast-bayou-6697.herokuapp.com/">Home</a></li>
+        </ul>
+        <h3 class="text-muted" style="color: white;">Amadeus PTR Batch Day</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Congratulations!</h1>
+        <button type="submit" class="btn btn-lg btn-success" id="assign" style="width: 40%;">{{ .Name }}</button>
+        <h4>(and if there's a Roberto in your team .. +10 points!)</h4>
+      </div>
+      <br />
+      <br />
+      <div class="footer" style="color: white;">
+        <p>Written in <b><a href="http://golang.org/" style="color: white;">Go</a></b>, using <b><a href="http://getbootstrap.com/" style="color: white;">Bootstrap</a></b>. Hacked by <b><a href="https://twitter.com/alebaffa" style="color: white;">@alebaffa</a></b>, hosted on <b>Heroku</b></p>
+      </div>
+
+    </div> <!-- /container -->
+  </body>
+</html>

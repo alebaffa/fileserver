@@ -1,10 +1,16 @@
 package main
 
 import (
+    "html/template"
     "net/http"
+    "path"
     "os"
-    "github.com/russross/blackfriday"
+    "math/rand"
 )
+
+type Teammate struct {
+    Name  string
+}
 
 func main() {
     port := os.Getenv("PORT")
@@ -19,6 +25,26 @@ func main() {
 }
 
 func AssignPTR(rw http.ResponseWriter, r *http.Request) {
-    markdown := blackfriday.MarkdownCommon([]byte(r.FormValue("body")))
-    rw.Write(markdown)
+    teammate := []Teammate{
+        {"Alessandro"},
+        {"Davide"},
+        {"Marcello"},
+        {"Sarah"},
+        {"Fred"},
+        {"Khaled"},
+        {"Herve"},
+        {"Bo"},
+        {"Remi"},
+    }
+
+    fp := path.Join("public", "winner.html")
+    tmpl, err := template.ParseFiles(fp)
+    if err != nil {
+        http.Error(rw, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := tmpl.Execute(rw, teammate[rand.Intn(len(teammate))]); err != nil {
+        http.Error(rw, err.Error(), http.StatusInternalServerError)
+    }
 }
