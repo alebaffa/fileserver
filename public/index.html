@@ -29,7 +29,7 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right" role="tablist">
-          <li role="presentation" class="active"><a href="#">Home</a></li>
+          <li role="presentation" class="active"><a href="http://localhost:8080">Home</a></li>
         </ul>
         <h3 class="text-muted">Amadeus PTR Batch Day</h3>
       </div>
@@ -37,11 +37,13 @@
       <div class="jumbotron">
         <h1>Assign Me a PTR</h1>
         <p class="lead">We love our colleagues and we show our love assigning them a lovely PTR Sev2 High.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Assign</a></p>
+        <form action="/assign" method="POST">
+          <button type="submit" class="btn btn-lg btn-success" id="assign">Assign</button>
+        </form>
       </div>
 
       <div class="footer">
-        <p>theme from <a href="http://getbootstrap.com/">Bootstrap</a>, <a href="https://twitter.com/alebaffa">hacked by @alebaffa</p>
+        <p>theme from <b><a href="http://getbootstrap.com/">Bootstrap</a></b>, hacked by <b><a href="https://twitter.com/alebaffa">@alebaffa</a></b>, code on <b><a href="https://github.com/alebaffa/fileserver">Github</a></b></p>
       </div>
 
     </div> <!-- /container -->
