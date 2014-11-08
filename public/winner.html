@@ -16,11 +16,6 @@
     <link href="jumbotron-narrow.css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script type="text/javascript">
-  $(document).ready(function(){
-      $('#btn-success').delay(1000).fadeIn(2200);
-  });
-  </script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,9 +41,10 @@
       </div>
 
       <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Congratulations to ...</h1>
+        <h3 class="loading">..come on Sofia, COME ON!!!</h3>
         <button type="submit" class="btn btn-lg btn-success" id="assign" style="width: 40%;">{{ .Name }}</button>
-        <h4>(and if there's a Roberto in your team .. +10 points!)</h4>
+        <h4 class="roberto"> (and if there's a Roberto in your team .. +10 points!)</h4>
       </div>
       <br />
       <br />
@@ -57,5 +53,12 @@
       </div>
 
     </div> <!-- /container -->
+      <script type="text/javascript">
+  $(document).ready(function() {
+   $(".btn").hide(0).delay(6000).fadeIn(1000);
+   $(".roberto").hide(0).delay(7000).fadeIn(1000);
+   $(".loading").delay(5000).fadeOut(500);
+});
+  </script>
   </body>
 </html>
