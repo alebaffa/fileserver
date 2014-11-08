@@ -2781,8 +2781,7 @@ select[multiple].form-group-lg .form-control {
 }
 .btn {
   display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
+  margin-bottom: 20;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -2925,8 +2924,10 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-success {
   color: #fff;
-  background-color: #FF0080;
-  border-color: #FF0080;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -3138,7 +3139,7 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-lg,
 .btn-group-lg > .btn {
-  padding: 10px 16px;
+  padding: 10px 10px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;

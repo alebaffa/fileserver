@@ -55,13 +55,15 @@ body {
   font-size: 91px;
 }
 .jumbotron .btn {
-  padding: 14px 24px;
   font-size: 81px;
   color: #fff;
   background-color: #FF0080;
   border-color: #D01265;
   width: 300px;
-  height: 150px;
+  height: 110px;
+}
+.btn-success {
+  padding: 0px 3px 20px;
 }
 
 .text-muted {
