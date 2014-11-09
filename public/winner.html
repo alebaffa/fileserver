@@ -35,7 +35,8 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills" role="tablist">
-          <li role="presentation" class="active"><a href="https://helpthesheriff.herokuapp.com/">Amadeus PTR Batch Day</a></li>
+        <li role="presentation" class="active"><a href="https://helpthesheriff.herokuapp.com/">Home</a></li>
+          <li role="presentation"><a href="#" style="background-color: white;">Amadeus PTR Batch Day</a></li>
         </ul>
       </div>
 
@@ -43,9 +44,11 @@
 
       <div class="jumbotron">
         <h1>And this PTR goes to ...</h1>
-        <h3 class="loading">..OMG the wait is killing me! ...</h3>
+        <h3 class="loading">... OMG the wait is killing me! ...</h3>
         <button type="submit" class="btn btn-lg btn-success" id="assign" style="width: 40%;">{{ .Name }}</button>
         <h4 class="roberto"> (and if there's a Roberto in your team .. +10 points!)</h4>
+        <br />
+        <h3 class="newOne"> Back to the <a href="https://helpthesheriff.herokuapp.com/">Home Page</a> to assign a new one! </h3>
       </div>
       <br />
       <br />
@@ -59,6 +62,7 @@
    $(".btn").hide(0).delay(6000).fadeIn(1000);
    $(".roberto").hide(0).delay(7500).fadeIn(1000);
    $(".loading").delay(5000).fadeOut(1000);
+   $(".newOne").hide(0).delay(9000).fadeIn(1000);
 });
   </script>
   </body>
