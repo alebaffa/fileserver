@@ -1,5 +1,4 @@
 #HelpTheSheriff webapp
-==========
 Test of web application written in Go and deployed (temporarily) on Heroku.
 https://helpthesheriff.herokuapp.com/.
 
