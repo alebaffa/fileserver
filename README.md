@@ -10,12 +10,12 @@ I am sorry for this crappy name (fileserver), but it was a different app at the 
 * [Account on Heroku](http://heroku.com/): to create a new app.
 
 ## Install
-* install Go and Heroku toolbelt on your machine
-* Create an account on Heroku
+* [install and configure Go](http://golang.org/doc/install) and the [Heroku toolbelt](https://toolbelt.heroku.com/) on your machine
+* create an account on Heroku
 * fork and clone this repository on your local machine
 
 ## Run Locally
-In order to run it locally you just need to have Go installed and configured.
+In order to run it locally you just need to have Go installed and configured ($GOPATH!!).
 * *cd /fileserver*
 * *go build*
 * *./fileserver* : at this point you should be able to run this webapp locally at [http://localhost:8080](http://localhost:8080).
@@ -37,4 +37,4 @@ func AssignPTR(rw http.ResponseWriter, r *http.Request) {
     }
 ```
 ## Deploy on Heroku
-* follow the official procedure [here](https://toolbelt.heroku.com/).
+* follow the official procedure [here](https://toolbelt.heroku.com/). It's easy as hell.
