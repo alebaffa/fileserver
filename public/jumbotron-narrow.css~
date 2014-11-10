@@ -54,7 +54,7 @@ body {
   position : absolute;
   top : 20%;
   bottom: 5%;
-  left: 3%;
+  left: 5%;
   right: 5%;
 }
 
