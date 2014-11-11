@@ -41,15 +41,22 @@ func getTeam(db *mgo.Database) Team {
   return team
 } 
 
+// function to return an array of all team members from mongodb
+func All(db *mgo.Database) []Team {
+  var teams []Team
+  db.C("testData").Find(bson.M{}).All(&teams)
+  return teams
+}
+
 func main() {
     m := martini.Classic()
-    m.Use(render.Renderer(render.Options {
-    Layout: "layout"}))
+    m.Use(render.Renderer())
     // use the Mongo middleware
     m.Use(DB())
     //http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("public"))))
     m.Get("/", func(r render.Render, db *mgo.Database) {
-        r.HTML(200, "home", nil)
+        teams := All(db)
+        r.HTML(200, "home", teams)
     }) 
 
 /* 

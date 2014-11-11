@@ -7,6 +7,15 @@ body {
   height: 100%;
 }
 
+
+.searchbox {
+    border:1px solid #456879;
+    border-radius:6px;
+    height: 22px;
+    width: 200p;
+    margin-top: 5px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

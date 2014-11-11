@@ -3868,7 +3868,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top-right-radius: 0;
 }
 .navbar {
-  position: relative;
+  position: absolute;
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
@@ -4197,6 +4197,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
+  width:34%;
 }
 .navbar-default .navbar-brand {
   color: #777;
