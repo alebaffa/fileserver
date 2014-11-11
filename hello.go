@@ -8,6 +8,7 @@ import (
     "gopkg.in/mgo.v2"
     "gopkg.in/mgo.v2/bson"
     "fmt"
+    "os"
 )
 
 type Team struct {
@@ -26,14 +27,14 @@ type TeamName struct {
    is injected into each handler function.
 */
 func DB() martini.Handler {
-  session, err := mgo.Dial("mongodb://localhost") // mongodb://localhost
+  session, err := mgo.Dial(os.Getenv("MONGO_URL")) // mongodb://localhost
   if err != nil {
     panic(err)
   }
  
   return func(c martini.Context) {
     s := session.Clone()
-    c.Map(s.DB("sheriff")) // local
+    c.Map(s.DB(os.Getenv("MONGO_DB"))) // local
     defer s.Close()
     c.Next()
   }
@@ -42,14 +43,14 @@ func DB() martini.Handler {
 // function to return an array of all team members from mongodb
 func getTeam(db *mgo.Database, name string) Team {
   var team Team
-  db.C("testData").Find(bson.M{"team": name}).One(&team)
+  db.C("teams").Find(bson.M{"team": name}).One(&team)
   return team
 } 
 
 // function to return an array of all team members from mongodb
 func All(db *mgo.Database) []Team {
   var teams []Team
-  db.C("testData").Find(bson.M{}).All(&teams)
+  db.C("teams").Find(bson.M{}).All(&teams)
   return teams
 }
 
@@ -64,7 +65,7 @@ func insertMongo(team Team, db *mgo.Database) {
         }
     }
     doc := Team{Team: team.Team, Members: members_valid}
-    db.C("testData").Insert(doc)
+    db.C("teams").Insert(doc)
 }
 
 func main() {
