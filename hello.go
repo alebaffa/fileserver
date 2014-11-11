@@ -3,8 +3,8 @@ package main
 import (
     "math/rand"
     "github.com/go-martini/martini"
-    "github.com/render"
-    "github.com/binding"
+    "github.com/martini-contrib/render"
+    "github.com/martini-contrib/binding"
     "gopkg.in/mgo.v2"
     "gopkg.in/mgo.v2/bson"
     "fmt"
