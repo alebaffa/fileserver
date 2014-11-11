@@ -7,11 +7,16 @@ import (
     "github.com/binding"
     "gopkg.in/mgo.v2"
     "gopkg.in/mgo.v2/bson"
+    "fmt"
 )
 
 type Team struct {
     Team  string `form:"teamname"`
     Members []string `form:"teammate[]"`
+}
+
+type TeamName struct {
+    Name string `form:"team_name"`
 }
 
 /* 
@@ -35,9 +40,9 @@ func DB() martini.Handler {
 }
 
 // function to return an array of all team members from mongodb
-func getTeam(db *mgo.Database) Team {
+func getTeam(db *mgo.Database, name string) Team {
   var team Team
-  db.C("testData").Find(bson.M{"team": "DD2"}).One(&team)
+  db.C("testData").Find(bson.M{"team": name}).One(&team)
   return team
 } 
 
@@ -48,6 +53,20 @@ func All(db *mgo.Database) []Team {
   return teams
 }
 
+var global_team_name string
+var global_teams []Team
+
+func insertMongo(team Team, db *mgo.Database) {
+    members_valid := make([]string, 1)
+    for i := 0; i < len(team.Members); i++ {
+        if team.Members[i] != "" {
+            members_valid = append(members_valid, team.Members[i])
+        }
+    }
+    doc := Team{Team: team.Team, Members: members_valid}
+    db.C("testData").Insert(doc)
+}
+
 func main() {
     m := martini.Classic()
     m.Use(render.Renderer())
@@ -55,8 +74,9 @@ func main() {
     m.Use(DB())
     //http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("public"))))
     m.Get("/", func(r render.Render, db *mgo.Database) {
-        teams := All(db)
-        r.HTML(200, "home", teams)
+        global_team_name = ""
+        global_teams = All(db)
+        r.HTML(200, "home", global_teams)
     }) 
 
 /* 
@@ -66,13 +86,26 @@ func main() {
     injects into our next handler function to insert into Mongodb.
  */   
     m.Post("/subscribe", binding.Form(Team{}), func(team Team, r render.Render, db *mgo.Database) {
-        db.C("testData").Insert(team)
-        r.HTML(200, "home", nil)
+        insertMongo(team, db)
+        global_teams = append(global_teams, team)
+        r.HTML(200, "home", global_teams)
+    })
+
+    m.Post("/set_team", binding.Form(TeamName{}), func(name TeamName, r render.Render, db *mgo.Database) {
+        global_team_name = name.Name
+        fmt.Println("set global variable to: ", global_team_name)
+        r.HTML(200, "home", global_teams)
     })
 
     m.Post("/assign", func(r render.Render, db *mgo.Database){
-        team := getTeam(db)
-        r.HTML(200, "winner", team.Members[rand.Intn(len(team.Members))])
+        if global_team_name == "" {
+            r.HTML(200, "home", global_teams)
+        } else {
+            team := getTeam(db, global_team_name)
+            fmt.Println("found team: ", team)
+            r.HTML(200, "winner", team.Members[rand.Intn(len(team.Members))])    
+        }
+        
     })
 
     m.Run()
