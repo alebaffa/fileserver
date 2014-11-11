@@ -15,7 +15,7 @@
     <!-- Custom styles for this template -->
     <link href="jumbotron-narrow.css" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,30 +26,18 @@
 
   <body>
 
-      <video autoplay id="bgvid" loop>
-      <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-      <source src="/assets/oscar_goes_to.webm" type="video/webm">
-      <source src="/assets/oscar_goes_to.mp4" type="video/mp4">
-      </video>
-
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills" role="tablist">
         <li role="presentation" class="active"><a href="https://helpthesheriff.herokuapp.com/">Home</a></li>
-          <li role="presentation"><a href="#" style="background-color: white;">Amadeus PTR Bash Day</a></li>
+        <li role="presentation"><a href="#" style="background-color: white;">Amadeus PTR Bash Day</a></li>
+        <li role="presentation"><a href="subscribe.html" style="background-color: white;">Subscribe my team</a></li>
         </ul>
       </div>
 
       <a href="https://github.com/alebaffa/fileserver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 
-      <div class="jumbotron" style="margin-top: 15%;">
-        <h1>And the PTR goes to ...</h1>
-        <h3 class="loading">... OMG the wait is killing me! ...</h3>
-        <button type="submit" class="btn btn-lg btn-success" id="assign" style="width: 40%;">{{ .Name }}</button>
-        <h4 class="roberto"> (and if there's a Roberto in your team .. +10 points!)</h4>
-        <br />
-        <h3 class="newOne"> Back to the <a href="https://helpthesheriff.herokuapp.com/">Home Page</a> to assign a new one! </h3>
-      </div>
+      {{ yield }}
       <br />
       <br />
       <div class="footer" style="color: white;">
@@ -59,7 +47,7 @@
     </div> <!-- /container -->
       <script type="text/javascript">
   $(document).ready(function() {
-   $(".btn").hide(0).delay(6000).fadeIn(1000);
+   $(".winner").hide(0).delay(6000).fadeIn(1000);
    $(".roberto").hide(0).delay(7500).fadeIn(1000);
    $(".loading").delay(5000).fadeOut(1000);
    $(".newOne").hide(0).delay(18000).fadeIn(1000);
