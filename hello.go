@@ -27,7 +27,7 @@ type TeamName struct {
    is injected into each handler function.
 */
 func DB() martini.Handler {
-  session, err := mgo.Dial(os.Getenv("MONGO_URL")) // mongodb://localhost
+  session, err := mgo.Dial(os.Getenv("MONGOLAB_URI")) // mongodb://localhost
   if err != nil {
     panic(err)
   }
