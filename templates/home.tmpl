@@ -28,17 +28,17 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
       <script>
-  $(function() {
-    var availableTeams = [
-      {{range .}}
-      {{.Team}},
-      {{ end }}
-    ];
-    $( "#teams" ).autocomplete({
-      source: availableTeams
-    });
-  });
-  </script>
+        $(function() {
+          var availableTeams = [
+          {{range .}}
+          {{.Team}},
+          {{ end }}
+          ];
+          $( "#teams" ).autocomplete({
+            source: availableTeams
+          });
+        });
+      </script>
     </head>
     <body>
       <div class="container">
@@ -51,9 +51,9 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="subscribe.html"><b style="color: #005EB8;">Subscribe your team</b></a></li>
-            </ul>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="subscribe.html"><b style="color: #005EB8;">Subscribe your team</b></a></li>
+              </ul>
               <form id="set_form" class="navbar-form navbar-left" role="search" action="/set_team" method="POST">
                 <div class="form-group">
                   <input type="text" class="form-control" id="teams" name="team_name" placeholder="Ex: DD2">
@@ -89,24 +89,24 @@
          });
         </script>
         <script type="text/javascript">
-  $(document).ready(function() {
-    $('#set_form')
-        .bootstrapValidator({
-            feedbackIcons: {
+          $(document).ready(function() {
+            $('#set_form')
+            .bootstrapValidator({
+              feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
+              },
+              fields: {
                 'team_name': {
-                    validators: {
-                        notEmpty: {
-                            message: 'The team name is required and cannot be empty'
-                        }
+                  validators: {
+                    notEmpty: {
+                      message: 'The team name is required and cannot be empty'
                     }
+                  }
                 }
-            }
-        });
-</script>
-      </body>
-      </html>
+              }
+            });
+          </script>
+        </body>
+        </html>

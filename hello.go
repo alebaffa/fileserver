@@ -60,15 +60,11 @@ var global_teams []Team
 func insertMongo(team Team, db *mgo.Database) {
     members_valid := make([]string, 0)
     for i := 0; i < len(team.Members); i++ {
-      fmt.Println("Il membro del team corrente è: ", team.Members[i])
         if team.Members[i] != "" {
             members_valid = append(members_valid, team.Members[i])
-        } else {
-          fmt.Println("Nome vuoto quindi non inserisco")
         }
     }
     doc := Team{Team: team.Team, Members: members_valid}
-    fmt.Println("il doc che stai inserendo è :", doc)
     db.C("teams").Insert(doc)
 }
 
@@ -98,7 +94,6 @@ func main() {
 
     m.Post("/set_team", binding.Form(TeamName{}), func(name TeamName, r render.Render, db *mgo.Database) {
         global_team_name = name.Name
-        fmt.Println("set global variable to: ", global_team_name)
         r.HTML(200, "home", global_teams)
     })
 
@@ -107,7 +102,6 @@ func main() {
             r.HTML(200, "home", global_teams)
         } else {
             team := getTeam(db, global_team_name)
-            fmt.Println("found team: ", team)
             r.HTML(200, "winner", team.Members[rand.Intn(len(team.Members))])    
         }
         
