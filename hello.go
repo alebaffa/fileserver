@@ -58,13 +58,17 @@ var global_team_name string
 var global_teams []Team
 
 func insertMongo(team Team, db *mgo.Database) {
-    members_valid := make([]string, 1)
+    members_valid := make([]string, 0)
     for i := 0; i < len(team.Members); i++ {
+      fmt.Println("Il membro del team corrente è: ", team.Members[i])
         if team.Members[i] != "" {
             members_valid = append(members_valid, team.Members[i])
+        } else {
+          fmt.Println("Nome vuoto quindi non inserisco")
         }
     }
     doc := Team{Team: team.Team, Members: members_valid}
+    fmt.Println("il doc che stai inserendo è :", doc)
     db.C("teams").Insert(doc)
 }
 
