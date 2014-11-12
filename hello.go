@@ -8,7 +8,7 @@ import (
     "gopkg.in/mgo.v2"
     "gopkg.in/mgo.v2/bson"
     "strings"
-    //"os"
+    "os"
 )
 
 type Team struct {
@@ -27,14 +27,14 @@ type TeamName struct {
    is injected into each handler function.
 */
 func DB() martini.Handler {
-  session, err := mgo.Dial("mongodb://localhost") // mongodb://localhost | os.Getenv("MONGOLAB_URI")
+  session, err := mgo.Dial(os.Getenv("MONGOLAB_URI")) // mongodb://localhost | os.Getenv("MONGOLAB_URI")
   if err != nil {
     panic(err)
   }
  
   return func(c martini.Context) {
     s := session.Clone()
-    c.Map(s.DB("test")) // local | os.Getenv("MONGO_DB")
+    c.Map(s.DB(os.Getenv("MONGO_DB"))) // local | os.Getenv("MONGO_DB")
     defer s.Close()
     c.Next()
   }
