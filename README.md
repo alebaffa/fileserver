@@ -7,6 +7,13 @@ I am sorry for this crappy name (fileserver), but it was a different app at the 
 ## Prerequisites
 If you want to modify it, these are the technical requirements:
 * [Go latest version](https://golang.org/doc/install): the backend is written in Go. I think it's compatible also with older versions, but there's no reason to not use the latest one.
+* Install the dependencies not part of the standard library:
+**"github.com/go-martini/martini"
+**"github.com/martini-contrib/render"
+**"github.com/martini-contrib/binding"
+**"gopkg.in/mgo.v2"
+**"gopkg.in/mgo.v2/bson"
+**"os"
 
 ## Install locally
 * fork and clone this repository on your local machine
