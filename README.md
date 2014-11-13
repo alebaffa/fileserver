@@ -4,6 +4,9 @@ https://helpthesheriff.herokuapp.com/.
 
 I am sorry for this crappy name (fileserver), but it was a different app at the beginning, and I was too lazy to create a new one.
 
+## TODO
+The organization of the frontend is a complete mess. This is something I will work on when I will have time. So, sorry for that.
+
 ## Prerequisites
 If you want to modify it, these are the technical requirements:
 * [Go latest version](https://golang.org/doc/install): the backend is written in Go. I think it's compatible also with older versions, but there's no reason to not use the latest one.
